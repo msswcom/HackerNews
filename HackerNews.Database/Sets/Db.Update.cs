@@ -7,7 +7,14 @@ namespace HackerNews.Database.Sets
         {
             context.Update(t);
 
-            await context.SaveChangesAsync();
+            try
+            {
+                await context.SaveChangesAsync();
+            }
+            catch
+            {
+                //log
+            }
 
             return t;
         }
